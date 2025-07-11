@@ -1,0 +1,1 @@
+[{"_id":{"$oid":"686fb69af77d5260cae5ca56"},"username":"developer","password":"$6$rounds=656000$ELuhNLqjj1UPCa5V$CgfdujtsgAZjND2uxOwVPqZknvFwGZomigFyCWLvIMRnPOgyTw7HmVTW1RhhT1WpOxanmEq4Kpp0v0cSV1PpY.","email":"developer@thankyou.com","studies":[{"$oid":"685282bb4100e5b68d6a0b27"}]}]

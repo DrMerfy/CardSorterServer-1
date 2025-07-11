@@ -31,7 +31,7 @@ class StudyResource(Resource):
             The studies don't include all information.
         """
 
-        # Check authentication
+        # Check authentication - DO NOT EDIT
         auth_header = request.headers.get('Authorization')
         user_id = User.validate_request(auth_header)
         if not user_id or isinstance(user_id, dict):
@@ -40,6 +40,7 @@ class StudyResource(Resource):
         if request.args.get('username'):
             user = User()
             return jsonify(username=user.get_username(user_id))
+        # End check authentication
 
         study = Study()
 
@@ -66,12 +67,13 @@ class StudyResource(Resource):
             The created resource (study) is returned.
         """
 
-        # Check authentication
+        # Check authentication - DO NOT EDIT
         auth_header = request.headers.get('Authorization')
         user_id = User.validate_request(auth_header)
 
         if not user_id or isinstance(user_id, dict):
             return make_response(jsonify(location=Config.url+'auth/'), 401)
+        # End check authentication
         
         req = request.json
         study = Study()
@@ -104,11 +106,12 @@ class StudyResource(Resource):
         Edits a study by changing the title or isLive status.
         Request body should contain JSON with 'id', 'title', and/or 'isLive'.
         """
-        # Check authentication
+        # Check authentication - DO NOT EDIT
         auth_header = request.headers.get('Authorization')
         user_id = User.validate_request(auth_header)
         if not user_id or isinstance(user_id, dict):
             return make_response(jsonify(location=Config.url+'auth/'), 401)
+        # End check authentication
               
         
         study_id = request.args.get('id')  
@@ -139,11 +142,12 @@ class StudyResource(Resource):
         Deletes a study based on the provided study ID.
         The study ID is passed as a parameter in the request.
         """
-        # Check authentication
+        # Check authentication - DO NOT EDIT
         auth_header = request.headers.get('Authorization')
         user_id = User.validate_request(auth_header)
         if not user_id or isinstance(user_id, dict):
             return make_response(jsonify(location=Config.url+'auth/'), 401)
+        # End check authentication
         
         study_id = request.args.get('id')  # Get the study ID from the request
         study = Study()

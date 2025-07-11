@@ -1,8 +1,8 @@
 
 services:
     mongo:
-        image: mongo:latest
-        container_name: card_sorter_mongodbdev
+        image: mongo:6
+        container_name: card_sorter_mongodb_dev
         
         ports:
             - "27017:27017"
@@ -14,8 +14,14 @@ services:
         volumes:
             - ./mongodata:/data/db
 
+    mongo-seed:
+      build: ./mongoseed
+      depends_on:
+        - mongo
+
     mongo-express:
       image: mongo-express:latest
+      container_name: card_sorter_mongo_express_dev
       
       ports:
         - "8081:8081"
@@ -25,6 +31,5 @@ services:
         ME_CONFIG_MONGODB_SERVER: "mongo"
         ME_CONFIG_BASICAUTH_USERNAME: rest_api
         ME_CONFIG_BASICAUTH_PASSWORD: password
-        #ME_CONFIG_MONGODB_URL: "card_sorter_mongodbdev://card_sorter_mongodbdev:27017"
       depends_on:
         - mongo
