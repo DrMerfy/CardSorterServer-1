@@ -11,7 +11,7 @@ Original authors: [Georgios Melissourgos](https://scholar.google.com/citations?u
 ## How to get started
 
 ### Prerequisites
-1. Python 3 \w pip
+1. Python 3 \w pip (optionally, pip-tools)
 2. Docker and docker-compose
 3. (Optionally) a unix-based or bash enabled system 
 
@@ -23,7 +23,8 @@ Original authors: [Georgios Melissourgos](https://scholar.google.com/citations?u
 3. If running for the first time:
     - Create a new venv `$ python -m venv env`
     - Activate environment `$ source env/bin/activate`
-    - install requirements from requirements.txt `pip install --no-cache-dir -r ./requirements.txt` (or leave it up to PyCharm)
+    - (if using pip tools) `$ pip-sync requirements.txt`
+    - (if not using pip-tools) install requirements from requirements.txt `pip install --no-cache-dir -r ./requirements.txt` (or leave it up to PyCharm)
 4. Get up the database `$ docker-compose up`, database can be visually inspected from [localhost:8081](http://localhost:8081)
 5. Get up the API `python app.py`
 
